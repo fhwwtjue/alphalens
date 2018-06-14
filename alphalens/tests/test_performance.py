@@ -29,7 +29,7 @@ from pandas import (
 )
 
 from pandas.util.testing import (assert_frame_equal,
-                                 assert_series_equal)
+                                 assert_series_equal)  # 待查
 
 from .. performance import (factor_information_coefficient,
                             mean_information_coefficient,
