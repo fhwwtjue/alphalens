@@ -178,7 +178,7 @@ def compute_forward_returns(factor_idx,
         Separate column for each forward return window.
     """
 
-    factor_idx = factor_idx.intersection(prices.index)
+    factor_idx = factor_idx.intersection(prices.index)  # 获取factor日期索引和price日期索引的交集
 
     forward_returns = pd.DataFrame(index=pd.MultiIndex.from_product(
         [factor_idx, prices.columns], names=['date', 'asset']))
@@ -508,7 +508,7 @@ def get_clean_factor_and_forward_returns(factor,
     factor_dateindex = factor.index.get_level_values('date').unique()
 
     merged_data = compute_forward_returns(factor_dateindex, prices, periods,
-                                          filter_zscore)
+                                          filter_zscore)  # 计算收益率
     merged_data['factor'] = factor
 
     if groupby is not None:
